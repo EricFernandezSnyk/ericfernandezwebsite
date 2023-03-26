@@ -3,7 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 
-const posts = (await getCollection('blog')).sort(
+// Get the last 3 posts
+const posts = (await getCollection('blog')).sort(     
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
@@ -15,40 +16,41 @@ const last_posts = posts.slice(0, 3);
     <div class="pb-12 mt-5">
       <div class="text-xl py-1">Hey there 👋</div>
       <div class="text-5xl font-bold">I'm Eric Fernandez del Campo</div>
-      <div class="text-3xl py-3 font-bold">Senior Solutions Engineer at Snyk</div>
-      <div class="py-2">
-        <text class="text-lg">
-          I made this template for everyone who needs to create a personal website easily and quickly. This template includes Project Section, CV Section, Store, Paginated Blog, RSS Feed, SEO Friendly, Responsive Desing and 29 Visual themes. I hope you find it useful!
-          </text
-        >
+      <div class="flex items-center">
+        <p class="text-3xl py-3 font-bold">Senior Solutions Engineer at Snyk </p>
+        <img class="max-w-[5rem]" src="/ericfernandezwebsite/snyk.png" alt="snyk"> 
+      </div>
+           
+
+      <div class="flex items-center">
+        <p class="text-lg">An experienced solutions engineer, excelling in getting close to the customer, understanding complex problems and building relationships as a trusted advisor. My goal is to help companies achieve their goal through technical solutions.</p>
       </div>
       <div class="mt-8">
-        <a class="btn" href="https://twitter.com/manuelernestog" target="_blank"> Let's connect!</a>
-        <a href="https://github.com/manuelernestog/astro-modern-personal-website" target="_blank" class="btn btn-outline ml-5"> Get This template</a>
+        <a class="btn" href="mailto:eric.fernandez.dc@outlook.com" target="_blank"> Let's connect!</a>
       </div>
     </div>
-
+    
     <div>
-      <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+      <div class="text-3xl w-full font-bold mb-2">Latest projects {"</>"}</div>
     </div>
 
     <HorizontalCard
-      title="Demo Project 1"
-      img="/ericfernandezwebsite/post_img.webp"
-      desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      url="#"
+      title="Snyk Tags Tool"
+      img="/ericfernandezwebsite/github.png"
+      desc="CLI tool designed to manage Snyk tags and attributes at scale"
+      url="https://github.com/snyk-labs/snyk-tags-tool"
       badge="NEW"
     />
     <div class="divider my-0"></div>
     <HorizontalCard
-    title="Demo Project 2"
-    img="/ericfernandezwebsite/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
+      title="Snyk to Slack through Lambda"
+      img="/ericfernandezwebsite/lambda.png"
+      desc="Use Snyk Webhooks alongside a Lambda function to receive and filter new vulnerabilities discovered by Snyk in your Slack."
+      url="https://docs.snyk.io/snyk-api-info/snyk-webhooks/using-snyk-webhooks-to-connect-snyk-to-slack-with-aws-lambda"
+    />
 
     <div>
-      <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+      <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from the blog</div>
     </div>
 
     {
